@@ -1,36 +1,83 @@
-<ul id="playlist">
-      <li>01 - BelovedHeart4</li>
-      <li>02 - SongforPurestofHeart</li>
-      <li>03 - BirthdaySongforthePurestofHeart</li>
-      <li>04 - PurestofHeart</li>
-    </ul>
+// Song file paths
+const songs = [
+  "songs/beloved.mp3",
+  "songs/birthdaysong.mp3",
+  "songs/pure.mp3",
+  "songs/purestofheart.mp3",
+  "songs/victory.mp3"
+];
+
+// Titles shown in "Now Playing"
+const titles = [
+  "beloved",
+  "birthdaysong",
+  "pure",
+  "purestofheart",
+  "Victory"
+];
+
+let currentSong = 0;
+
+// Get DOM elements
+const audioPlayer = document.getElementById("audioPlayer");
+const playBtn = document.getElementById("playBtn");
+const pauseBtn = document.getElementById("pauseBtn");
+const nextBtn = document.getElementById("nextBtn");
+const nowPlaying = document.getElementById("nowPlaying");
+const playlistItems = document.querySelectorAll("#playlist li");
+
+// Play current song
+playBtn.addEventListener("click", () => {
+  audioPlayer.play();
+});
+
+// Pause
+pauseBtn.addEventListener("click", () => {
+  audioPlayer.pause();
+});
+
+// Next song
+nextBtn.addEventListener("click", () => {
   nextSong();
 });
 
+// Auto-play next song on end
+audioPlayer.addEventListener("ended", () => {
+  nextSong();
+});
+
+// Switch to next song
 function nextSong() {
   currentSong = (currentSong + 1) % songs.length;
+  loadAndPlayCurrentSong();
+}
+
+// Load and play the current song
+function loadAndPlayCurrentSong() {
   audioPlayer.src = songs[currentSong];
-  nowPlaying.textContent = "Now Playing: " + titles[currentSong];
   audioPlayer.play();
+  nowPlaying.textContent = "Now Playing: " + titles[currentSong];
   updateActiveSong();
 }
 
+// Highlight current song in list
 function updateActiveSong() {
   playlistItems.forEach((item, index) => {
     item.classList.toggle("active", index === currentSong);
   });
 }
 
-// Initial highlight
-updateActiveSong();
+// Allow clicking on a song to play it
+playlistItems.forEach(item => {
+  item.addEventListener("click", () => {
+    const index = parseInt(item.getAttribute("data-index"));
+    if (!isNaN(index)) {
+      currentSong = index;
+      loadAndPlayCurrentSong();
+    }
+  });
 });
 
-function nextSong() {
-  currentSong = (currentSong + 1) % songs.length;
-  audioPlayer.src = songs[currentSong];
-  nowPlaying.textContent = "Now Playing: " + titles[currentSong];
-  audioPlayer.play();
-}
-
-// Update now playing at start
+// Initial highlight and song info
 nowPlaying.textContent = "Now Playing: " + titles[currentSong];
+updateActiveSong();
