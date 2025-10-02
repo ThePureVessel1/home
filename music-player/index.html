@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Music Player</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="player-container">
+    <h1>🎵 Celebrate Today Playlist 🎉</h1>
+    
+    <ul id="playlist">
+      <li>01 - Song One</li>
+      <li>02 - Song Two</li>
+      <li>03 - Song Three</li>
+      <li>04 - Song Four</li>
+      <li>05 - Song Five</li>
+    </ul>
+
+    <div class="controls">
+      <button id="playBtn">▶️ Play</button>
+      <button id="pauseBtn">⏸️ Pause</button>
+      <button id="nextBtn">⏭️ Next</button>
+    </div>
+    
+    <p id="nowPlaying">Now Playing: Song One</p>
+
+    <audio id="audioPlayer" src="songs/song1.mp3"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
