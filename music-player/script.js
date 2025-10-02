@@ -2,15 +2,14 @@ const songs = [
   "/BelovedHeart4.mp3",
   "/SongforthePurestofHeart.mp3",
   "/BirthdaysongforthePurestofHeart(2).mp3",
-  "/song5.mp3"
+  "/PurestofHeart.mp3"
 ];
 
 const titles = [
   "Song BelovedHeart",
-  "Song PurestofHeart",
   "Song SongforthePurestofHeart",
-  "Song BirthdaySong",
-  "Song Five"
+  "Song BirthdaysongforthePurestofHeart(2)",
+  "Song PurestofHeart",
 ];
 
 let currentSong = 0;
