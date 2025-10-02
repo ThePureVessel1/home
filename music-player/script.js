@@ -1,39 +1,9 @@
-const songs = [
-  "/BelovedHeart4.mp3",
-  "/SongforthePurestofHeart.mp3",
-  "/BirthdaysongforthePurestofHeart(2).mp3",
-  "/PurestofHeart.mp3"
-];
-
-const titles = [
-  "Song BelovedHeart",
-  "Song SongforthePurestofHeart",
-  "Song BirthdaysongforthePurestofHeart(2)",
-  "Song PurestofHeart",
-];
-
-let currentSong = 0;
-
-const audioPlayer = document.getElementById("audioPlayer");
-const playBtn = document.getElementById("playBtn");
-const pauseBtn = document.getElementById("pauseBtn");
-const nextBtn = document.getElementById("nextBtn");
-const nowPlaying = document.getElementById("nowPlaying");
-const playlistItems = document.querySelectorAll("#playlist li");
-
-playBtn.addEventListener("click", () => {
-  audioPlayer.play();
-});
-
-pauseBtn.addEventListener("click", () => {
-  audioPlayer.pause();
-});
-
-nextBtn.addEventListener("click", () => {
-  nextSong();
-});
-
-audioPlayer.addEventListener("ended", () => {
+<ul id="playlist">
+      <li>01 - BelovedHeart4</li>
+      <li>02 - SongforPurestofHeart</li>
+      <li>03 - BirthdaySongforthePurestofHeart</li>
+      <li>04 - PurestofHeart</li>
+    </ul>
   nextSong();
 });
 
