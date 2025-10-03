@@ -78,6 +78,50 @@ playlistItems.forEach(item => {
 
 nowPlaying.textContent = "Now Playing: " + titles[currentSong];
 updateActiveSong();
+  });
+});
+
+nextBtn.addEventListener("click", () => {
+  nextSong();
+});
+
+audioPlayer.addEventListener("ended", () => {
+  nextSong();
+});
+
+function nextSong() {
+  currentSong = (currentSong + 1) % songs.length;
+  loadAndPlayCurrentSong();
+}
+
+function loadAndPlayCurrentSong() {
+  audioPlayer.src = songs[currentSong];
+  audioPlayer.play();
+  nowPlaying.textContent = "Now Playing: " + titles[currentSong];
+  updateActiveSong();
+  reels.forEach(reel => {
+    reel.style.animationPlayState = "running";
+  });
+}
+
+function updateActiveSong() {
+  playlistItems.forEach((item, index) => {
+    item.classList.toggle("active", index === currentSong);
+  });
+}
+
+playlistItems.forEach(item => {
+  item.addEventListener("click", () => {
+    const index = parseInt(item.getAttribute("data-index"));
+    if (!isNaN(index)) {
+      currentSong = index;
+      loadAndPlayCurrentSong();
+    }
+  });
+});
+
+nowPlaying.textContent = "Now Playing: " + titles[currentSong];
+updateActiveSong();
   const message = messages[msgIndex];
   if (charIndex < message.length) {
     typewriter.textContent += message.charAt(charIndex);
