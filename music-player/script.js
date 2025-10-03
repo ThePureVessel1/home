@@ -4,7 +4,6 @@ const songs = [
   "songs/birthdaysong.mp3",
   "songs/pure.mp3",
   "songs/purestofheart.mp3",
-  "songs/victory.mp3"
 ];
 
 // Titles shown in "Now Playing"
@@ -13,7 +12,6 @@ const titles = [
   "birthdaysong",
   "pure",
   "purestofheart",
-  "Victory"
 ];
 
 let currentSong = 0;
