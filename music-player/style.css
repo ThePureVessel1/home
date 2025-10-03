@@ -80,3 +80,49 @@ h1 {
   font-style: italic;
   color: #bbb;
 }
+#playlist li {
+  padding: 12px;
+  margin: 5px 0;
+  background-color: #111;
+  color: #888;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#playlist li:hover {
+  color: #fff;
+  background-color: #1d1d1d;
+  border-left: 3px solid #f39c12;
+  transform: scale(1.01);
+}
+
+#playlist li.active {
+  background-color: #333;
+  color: #f1c40f;
+  font-weight: bold;
+  border-left: 4px solid #f1c40f;
+}
+
+.controls button {
+  background-color: #1c1c1c;
+  color: #f1f1f1;
+  border: 1px solid #555;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.controls button:hover {
+  background-color: #f39c12;
+  color: #000;
+}
+
+#nowPlaying {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #bbb;
+}
