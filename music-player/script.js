@@ -24,9 +24,9 @@ const reels = document.querySelectorAll(".reel");
 
 // Typewriter message
 const messages = [
-  "Welcome to the Director’s Cut cassette player.",
+  "Welcome to the party!",
   "Click ▶️ to begin your soundtrack.",
-  "Your guide is always listening…"
+  "Follow me,thepurestofvessels on Instagram."
 ];
 let msgIndex = 0;
 let charIndex = 0;
