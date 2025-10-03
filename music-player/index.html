@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎬 Director’s Cut Music Player</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="player-container">
+    <h1>🎵 Director's Cut Playlist 🎬</h1>
+
+    <!-- Playlist -->
+    <ul id="playlist">
+      <li data-index="0">01 - beloved</li>
+      <li data-index="1">02 - pure</li>
+      <li data-index="2">03 - purest</li>
+      <li data-index="3">04 - purestofheart</li>
+    </ul>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button id="playBtn">▶️ Play</button>
+      <button id="pauseBtn">⏸️ Pause</button>
+      <button id="nextBtn">⏭️ Next</button>
+    </div>
+
+    <!-- Now Playing -->
+    <p id="nowPlaying">Now Playing: beloved</p>
+
+    <!-- Audio Player -->
+    <audio id="audioPlayer" src="songs/beloved.mp3"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
