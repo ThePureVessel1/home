@@ -121,6 +121,47 @@
       text-align: center;
       padding: 10px;
     }
+    /* 🧭 Guide Avatar Styles */
+.guide-container {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.guide-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-bottom: 10px;
+  background: #222;
+}
+
+.guide-message {
+  font-size: 12px;
+  max-width: 500px;
+  margin: 0 auto 10px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  min-height: 50px;
+  display: inline-block;
+  line-height: 1.6;
+}
+
+#userInput {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  padding: 6px;
+  border: none;
+  background: #1e3c72;
+  color: #fff;
+  border-radius: 4px;
+  width: 240px;
+  margin-top: 5px;
+  outline: none;
+}
+
   </style>
 </head>
 
@@ -135,34 +176,44 @@
   </div>
 
   <!-- Main content -->
-  <div class="content">
+ <!-- Main content -->
+<div class="content">
 
-    <div class="header-banner" id="home">P.O.V</div>
+  <div class="header-banner" id="home">P.O.V</div>
 
-    <div class="top-nav">
-      <a href="#home">Hi</a>
-      <a href="#about">About</a>
-      <a href="#music-player">Music</a>
-      <a href="#social">Social</a>
-    </div>
-
-    <div id="about" class="section">
-      <h2>About</h2>
-      <p>This space is a creative hub for animations, sound, and spirit — inspired by Hollow Knight and Deltarune.</p>
-    </div>
-
-    <div id="music-player" class="section">
-      <h2>🎧 Music Player</h2>
-      <iframe src="https://thepurevessel1.github.io/ThePureVessel1/music-player/"></iframe>
-    </div>
-
-    <div id="social" class="section">
-      <h2>Connect</h2>
-      <p>Follow on GitHub, or wherever the Pure Vessel journeys next...</p>
-    </div>
-
-    <footer>&copy; 2025</footer>
+  <div class="top-nav">
+    <a href="#home">Hi</a>
+    <a href="#about">About</a>
+    <a href="#music-player">Music</a>
+    <a href="#social">Social</a>
   </div>
+
+  <!-- 🧭 Guide Avatar Box -->
+  <div class="guide-container">
+    <img src="https://via.placeholder.com/100x100.png?text=Bug" alt="Avatar Guide" class="guide-avatar" />
+    <div class="guide-message" id="guideMessage"></div>
+    <input type="text" id="userInput" placeholder="Say something..." autocomplete="off" />
+  </div>
+
+  <div id="about" class="section">
+    <h2>About</h2>
+    <p>This space is a creative hub for animations, sound, and spirit — inspired by Hollow Knight and Deltarune.</p>
+  </div>
+
+  <div id="music-player" class="section">
+    <h2>🎧 Music Player</h2>
+    <iframe src="https://thepurevessel1.github.io/ThePureVessel1/music-player/"></iframe>
+  </div>
+
+  <div id="social" class="section">
+    <h2>Connect</h2>
+    <p>Follow on GitHub, or wherever the Pure Vessel journeys next...</p>
+  </div>
+
+  <footer>&copy; 2025</footer>
+</div>
+
+
 
   <!-- Fade in main content -->
   <script>
@@ -180,7 +231,61 @@
       }, 7000); // Adjust loading time if needed
     });
   </script>
+<script>
+  const guideMessageBox = document.getElementById("guideMessage");
+  const userInput = document.getElementById("userInput");
+
+  const friendlyResponses = {
+    hi: "Hello there, kind soul. Have you listened to the new track yet?",
+    hello: "Hello! Welcome back, traveler of sound.",
+    bye: "Farewell, but not forever. The song continues.",
+    "how are you": "I'm well — just dreaming of Hallownest. And you?",
+  };
+
+  const deepThoughts = [
+    "Oh good! I just got another commission request! God is good!",
+    "Wait, what? You're so ready for the next epic sequel to Silk Song? Yeah, me too sibling! Me too!",
+    "🎵 Yo ho, yo ho, a pirate’s life for me... 🎵",
+    "I wonder what the weather in Hawaii is like?",
+    "Sometimes I feel like a vessel, but I am full of light.",
+    "If bugs could pray... would they sing?",
+    "I talk to God while animating. He whispers in frame timing.",
+  ];
+
+  // Typewriter effect
+  function typeMessage(message) {
+    guideMessageBox.textContent = '';
+    let i = 0;
+    const interval = setInterval(() => {
+      guideMessageBox.textContent += message.charAt(i);
+      i++;
+      if (i >= message.length) clearInterval(interval);
+    }, 35);
+  }
+
+  // Respond to user input
+  userInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const input = userInput.value.trim().toLowerCase();
+      const response = friendlyResponses[input] || deepThoughts[Math.floor(Math.random() * deepThoughts.length)];
+      typeMessage(response);
+      userInput.value = '';
+    }
+  });
+
+  // Auto-random thoughts every 30 seconds
+  setInterval(() => {
+    const randomThought = deepThoughts[Math.floor(Math.random() * deepThoughts.length)];
+    typeMessage(randomThought);
+  }, 30000);
+
+  // First message
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      typeMessage("Welcome, sibling. This place... it sings.");
+    }, 8000); // after loading screen
+  });
+</script>
 
 </body>
 </html>
-
