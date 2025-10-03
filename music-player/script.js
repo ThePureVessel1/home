@@ -25,7 +25,7 @@ const reels = document.querySelectorAll(".reel");
 // Typewriter message
 const messages = [
   "Welcome to the party!",
-  "Click ▶️ to begin your soundtrack.",
+  "Click ▶️ to begin the soundtrack.",
   "Follow me,thepurestofvessels on Instagram."
 ];
 let msgIndex = 0;
