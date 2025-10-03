@@ -127,6 +127,99 @@ body {
     transform: rotate(360deg);
   }
 }
+  background: radial-gradient(#999 30%, #333 70%);
+  animation-play-state: paused;
+}
+
+.reel-left {
+  animation: spin 3s linear infinite;
+}
+
+.reel-right {
+  animation: spin 3s linear infinite reverse;
+}
+
+.label {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  background: rgba(255, 255, 255, 0.05);
+  text-align: center;
+  padding: 8px;
+  border-radius: 6px;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #f1c40f;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+.controls button {
+  background-color: #1c1c1c;
+  color: #f1f1f1;
+  border: 2px solid #f39c12;
+  padding: 12px 18px;
+  margin: 0 8px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #f39c12;
+  color: #000;
+}
+
+.playlist-scroll {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(15, 15, 15, 0.85);
+  padding: 10px 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  border-top: 2px solid #333;
+}
+
+#playlist {
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0 20px;
+  list-style: none;
+}
+
+#playlist li {
+  color: #888;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#playlist li:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#playlist li.active {
+  color: #f1c40f;
+  font-weight: bold;
+}
+
+/* Spinning animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 /* Cassette Container */
 .cassette-wrapper {
   display: flex;
