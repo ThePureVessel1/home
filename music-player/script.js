@@ -1,0 +1,81 @@
+// Song file paths
+const songs = [
+  "songs/beloved.mp3",
+  "songs/pure.mp3",
+  "songs/purest.mp3",
+  "songs/purestofheart.mp3"
+];
+
+// Display titles
+const titles = [
+  "beloved",
+  "pure",
+  "purest",
+  "purestofheart"
+];
+
+let currentSong = 0;
+
+// DOM elements
+const audioPlayer = document.getElementById("audioPlayer");
+const playBtn = document.getElementById("playBtn");
+const pauseBtn = document.getElementById("pauseBtn");
+const nextBtn = document.getElementById("nextBtn");
+const nowPlaying = document.getElementById("nowPlaying");
+const playlistItems = document.querySelectorAll("#playlist li");
+
+// Play
+playBtn.addEventListener("click", () => {
+  audioPlayer.play();
+});
+
+// Pause
+pauseBtn.addEventListener("click", () => {
+  audioPlayer.pause();
+});
+
+// Next
+nextBtn.addEventListener("click", () => {
+  nextSong();
+});
+
+// Auto-next
+audioPlayer.addEventListener("ended", () => {
+  nextSong();
+});
+
+// Play next song
+function nextSong() {
+  currentSong = (currentSong + 1) % songs.length;
+  loadAndPlayCurrentSong();
+}
+
+// Load current song
+function loadAndPlayCurrentSong() {
+  audioPlayer.src = songs[currentSong];
+  audioPlayer.play();
+  nowPlaying.textContent = "Now Playing: " + titles[currentSong];
+  updateActiveSong();
+}
+
+// Highlight active song
+function updateActiveSong() {
+  playlistItems.forEach((item, index) => {
+    item.classList.toggle("active", index === currentSong);
+  });
+}
+
+// Click to play song
+playlistItems.forEach(item => {
+  item.addEventListener("click", () => {
+    const index = parseInt(item.getAttribute("data-index"));
+    if (!isNaN(index)) {
+      currentSong = index;
+      loadAndPlayCurrentSong();
+    }
+  });
+});
+
+// Initial state
+nowPlaying.textContent = "Now Playing: " + titles[currentSong];
+updateActiveSong();
