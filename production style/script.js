@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     const root = document.getElementById('root');
     
@@ -161,7 +160,45 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </section>
 
-                                                  class="w-full h-48 object-cover"
+                <!-- Adoptable Pets Section -->
+                <section class="py-12 px-4 bg-hollow-dark/50">
+                    <div class="container mx-auto">
+                        <h2 class="text-2xl font-cinzel text-glow mb-8 text-center uppercase tracking-wide">Adoptable Digital Pets</h2>
+                        <p class="text-muted-glow mb-6 text-center font-inter max-w-3xl mx-auto">
+                            Discover these unique digital companions inspired by the depths of Hallownest. Each pet is a one-of-a-kind creation. 
+                            To adopt: Select your favorite, click download, and receive the high-res files. Adoption grants personal use rights. 
+                            For showcasing your collection, I offer custom website development to house your pets – starting at $200. Contact me for details!
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+                            <!-- Pet 1 -->
+                            <div class="card-hollow overflow-hidden relative">
+                                <img 
+                                    src="https://placeholder-image-service.onrender.com/image/300x300?prompt=Cute%20digital%20pet%20in%20Hollow%20Knight%20style%3A%20small%20insect-like%20creature%20with%20glowing%20eyes%20and%20ancient%20armor%20in%20dark%20fantasy%20setting&id=pet-1" 
+                                    alt="Adoptable digital pet 1: Whimsical insect companion with ethereal glow, ready for adoption"
+                                    class="w-full h-48 object-cover"
+                                />
+                                <div class="p-4 text-center">
+                                    <h3 class="text-glow font-cinzel text-sm mb-2">Voidling #1</h3>
+                                    <p class="text-muted-glow text-xs mb-3">Your loyal shadow companion</p>
+                                    <button class="btn btn-outline w-full font-inter" onclick="downloadPet(1)">
+                                        <span style="display: inline-flex; align-items: center;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0e0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                                            </svg>
+                                            Adopt & Download
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Pet 2 -->
+                            <div class="card-hollow overflow-hidden relative">
+                                <img 
+                                    src="https://placeholder-image-service.onrender.com/image/300x300?prompt=Cute%20digital%20pet%20in%20Hollow%20Knight%20style%3A%20small%20insect-like%20creature%20with%20glowing%20eyes%20and%20ancient%20armor%20in%20dark%20fantasy%20setting&id=pet-2" 
+                                    alt="Adoptable digital pet 2: Whimsical insect companion with ethereal glow, ready for adoption"
+                                    class="w-full h-48 object-cover"
                                 />
                                 <div class="p-4 text-center">
                                     <h3 class="text-glow font-cinzel text-sm mb-2">Voidling #2</h3>
@@ -178,7 +215,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </button>
                                 </div>
                             </div>
-                            <!-- Pet 3 -->
+
+                           <!-- Pet 3 -->
                             <div class="card-hollow overflow-hidden relative">
                                 <img 
                                     src="https://placeholder-image-service.onrender.com/image/300x300?prompt=Cute%20digital%20pet%20in%20Hollow%20Knight%20style%3A%20small%20insect-like%20creature%20with%20glowing%20eyes%20and%20ancient%20armor%20in%20dark%20fantasy%20setting&id=pet-3" 
@@ -190,8 +228,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <p class="text-muted-glow text-xs mb-3">Ancient cavern explorer</p>
                                     <button class="btn btn-outline w-full font-inter" onclick="downloadPet(3)">
                                         <span style="display: inline-flex;
-
-                                                                  <span style="display: inline-flex; align-items: center;">
+                                        ---
+                                                                                <span style="display: inline-flex; align-items: center;">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0e0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
                                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                                                 <polyline points="7 10 12 15 17 10"></polyline>
@@ -228,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                 </section>
-                <!-- Director's Cut Radio Section -->
+                                <!-- Director's Cut Radio Section -->
                 <section class="py-12 px-4 bg-hollow-dark/50">
                     <div class="container mx-auto text-center">
                         <h2 class="text-2xl font-cinzel text-glow mb-8 uppercase tracking-wide">Director's Cut: Soundtrack Visions</h2>
@@ -318,6 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Initialize: Load first track (play on user click for compliance)
                 loadTrack(0);
+
                 <!-- Footer -->
                 <footer class="bg-hollow-dark/80 py-8 px-4 border-t border-glow/30 backdrop-blur-sm">
                     <div class="container mx-auto text-center">
