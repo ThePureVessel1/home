@@ -243,6 +243,7 @@
   };
 
   const deepThoughts = [
+    "Are you here for the Purest Of Vessels? Yeah me too.",
     "Oh good! I just got another commission request! God is good!",
     "Another 360 days around the sun! Fancy that!",
     "Wait, what? You're so ready for the next epic sequel to Silk Song? Yeah, me too sibling! Me too!",
@@ -274,11 +275,7 @@
     }
   });
 
-  // Auto-deep thoughts every 300 seconds
-  setInterval(() => {
-    const deepThought = deepThoughts[Math.floor(Math.random() * deepThoughts.length)];
-    typeMessage(deepThought);
-  }, 30000);
+
 
   // First message
   window.addEventListener("load", () => {
