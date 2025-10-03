@@ -3,6 +3,7 @@ const songs = [
   "songs/beloved.mp3",
   "songs/birthdaysong.mp3",
   "songs/pure.mp3",
+  "songs/purest.mp3",  
   "songs/purestofheart.mp3",
 ];
 
@@ -11,6 +12,7 @@ const titles = [
   "beloved",
   "birthdaysong",
   "pure",
+  "purest",
   "purestofheart",
 ];
 
