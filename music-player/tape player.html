@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Retro Cassette Player</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: linear-gradient(to bottom, cornflowerblue, #444);
+      font-family: 'Press Start 2P', monospace;
+      color: #ccc;
+      overflow: hidden;
+    }
+
+    .scanlines {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      z-index: 5;
+      mix-blend-mode: multiply;
+    }
+
+    /* Splash Screen */
+    .splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      color: #ccc;
+      font-size: 1em;
+      text-align: center;
+      flex-direction: column;
+      transition: opacity 1s ease;
+    }
+
+    .splash.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .press-start {
+      animation: blink 1s step-start infinite;
+      margin-top: 20px;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* Main Player Container */
+    .cassette-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid #888;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      font-size: 0.65em;
+      z-index: 2;
+    }
+
+    .cassette-box::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      box-shadow: 0 0 20px rgba(173,216,230,0.15);
+      z-index: -1;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 15px;
+      filter: grayscale(100%) contrast(1.2);
+    }
+
+    .cassette-controls {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    button {
+      background: #222;
+      color: #ccc;
+      border: 2px solid #888;
+      padding: 10px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      background: #444;
+      color: #fff;
+    }
+
+    .song-title {
+      margin-top: 10px;
+      font-size: 0.75em;
+    }
+
+    /* Cassette animation */
+    .cassette-graphic {
+      margin: 20px auto;
+      width: 160px;
+      height: 80px;
+      background: #111;
+      border: 3px solid #ccc;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .reel {
+      width: 30px;
+      height: 30px;
+      border: 3px solid #ccc;
+      border-radius: 50%;
+      box-shadow: inset 0 0 5px #aaa;
+      animation: spin 2s linear infinite;
+    }
+
+    .reel.paused {
+      animation-play-state: paused;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 600px) {
+      .cassette-box {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Splash Screen -->
+  <div class="splash" id="splash">
+    <div>WELCOME</div>
+    <div class="press-start">PRESS START</div>
+  </div>
+
+  <!-- Cassette Player -->
+  <div class="cassette-box" id="playerBox" style="display: none;">
+    <div>🎵 Now Playing</div>
+    <div class="song-title" id="songTitle">beloved</div>
+
+    <div class="cassette-graphic">
+      <div class="reel" id="reelLeft"></div>
+      <div class="reel" id="reelRight"></div>
+    </div>
+
+    <audio id="player" controls>
+      <source id="source" src="songs/beloved.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <div class="cassette-controls">
+      <button onclick="prevSong()">⏮ Prev</button>
+      <button onclick="nextSong()">⏭ Next</button>
+    </div>
+  </div>
+
+  <!-- Scanlines -->
+  <div class="scanlines"></div>
+
+  <script>
+    // Splash Screen Logic
+    const splash = document.getElementById("splash");
+    const playerBox = document.getElementById("playerBox");
+
+    splash.addEventListener("click", () => {
+      splash.classList.add("hidden");
+      setTimeout(() => {
+        splash.style.display = "none";
+        playerBox.style.display = "block";
+      }, 1000);
+    });
+
+    // Cassette playlist logic
+    const songs = [
+      "songs/beloved.mp3",
+      "songs/pure.mp3",
+      "songs/purest.mp3",
+      "songs/purestofheart.mp3"
+    ];
+
+    const titles = [
+      "beloved",
+      "pure",
+      "purest",
+      "purestofheart"
+    ];
+
+    let current = 0;
+    const player = document.getElementById("player");
+    const source = document.getElementById("source");
+    const titleDisplay = document.getElementById("songTitle");
+    const reelLeft = document.getElementById("reelLeft");
+    const reelRight = document.getElementById("reelRight");
+
+    function loadSong(index) {
+      source.src = songs[index];
+      player.load();
+      titleDisplay.textContent = titles[index];
+    }
+
+    function nextSong() {
+      current = (current + 1) % songs.length;
+      loadSong(current);
+      player.play();
+    }
+
+    function prevSong() {
+      current = (current - 1 + songs.length) % songs.length;
+      loadSong(current);
+      player.play();
+    }
+
+    // Animate cassette reels while playing
+    player.addEventListener("play", () => {
+      reelLeft.classList.remove("paused");
+      reelRight.classList.remove("paused");
+    });
+
+    player.addEventListener("pause", () => {
+      reelLeft.classList.add("paused");
+      reelRight.classList.add("paused");
+    });
+  </script>
+</body>
+</html>
