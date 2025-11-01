@@ -9,62 +9,114 @@
 <style>
   /* === Global Base === */
 body {
- margin: 0;
-  font-family: 'Press Start 2P', cursive;
-  background: linear-gradient(135deg, #2ab7ca 0%, #6495ED 40%, #b3e6ff 100%);
-  color: #f0f0f0;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-}
+      margin: 0;
+      font-family: 'Press Start 2P', cursive;
+      background: linear-gradient(135deg, #2ab7ca 0%, #6495ED 50%, #b3e6ff 100%);
+      color: #f0f0f0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      background-attachment: fixed;
+      background-size: 300% 300%;
+      animation: gradientFlow 30s ease infinite;
+    }
 
-.background-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(12px);
-  pointer-events: none;
-  z-index: 0;
+    /* Moving gradient animation */
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-}
+    /* Subtle blur overlay */
+    .background-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-/* === Slimline Banner === */
-.slim-banner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(100,149,237,0.6); /* Cornflower tint */
-  backdrop-filter: blur(6px);
-  color: #ffffff;
-  font-size: 9px;
-  z-index: 2000;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.3);
-}
+    /* === Slimline Slideshow Banner === */
+    .slim-banner-container {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      z-index: 10;
+    }
 
-/* === Hero Banner === */
-.hero-banner {
-  background: linear-gradient(135deg, rgba(75,108,183,0.8), rgba(100,149,237,0.8));
-  backdrop-filter: blur(8px);
-  padding: 70px 20px 50px;
-  text-align: center;
-  color: #fff;
-  margin-top: 35px; /* offset for slim banner */
-}
+    .slim-banner-container img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+      filter: brightness(0.9);
+    }
 
-.hero-banner h1 { font-size: 1.5em; margin: 0; }
-.hero-banner p { font-size: 10px; margin-top: 10px; }
+    .slim-banner-container img.active {
+      opacity: 1;
+    }
 
+    /* Text overlay over the slideshow */
+    .slim-banner-text {
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 6px 0;
+      backdrop-filter: blur(6px);
+      letter-spacing: 0.5px;
+      z-index: 11;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
+    /* === Hero Banner === */
+    .hero-banner {
+      text-align: center;
+      padding: 60px 20px 80px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+      z-index: 5;
+      position: relative;
+    }
+
+    .hero-banner.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-banner h1 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .hero-banner p {
+      font-size: 12px;
+      color: #f0f0f0;
+      max-width: 600px;
+      margin: 0 auto;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    }
+
+    /* === Decorative Divider === */
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, #2ab7ca, #6495ED);
+      margin: 20px auto;
+      border-radius: 3px;
+    }
 /* === Navigation === */
 .top-nav {
   display: flex;
@@ -279,19 +331,24 @@ footer {
 
 </style>
 </head>
-
 <body>
-<div class="slim-banner-container">
-    <img src="sceptrevsslingshot.png" alt="Slim Banner" class="slim-banner-img">
+  <!-- Gaussian blur overlay -->
+  <div class="background-overlay"></div>
+
+  <!-- === Unified Intro Section === -->
+  <div class="slim-banner-container">
+    <img src="sockopme.gif" alt="banner 1" class="active">
+    <img src="animate7.png" alt="banner 2">
+    <img src="sockopme.gif" alt="banner 3">
+
     <div class="slim-banner-text">
       🌟 Commissions Open | New Indie Beats Out Now | Support Creativity 💫
-</div>
-</div>
-
+    </div>
+  </div>
 <!-- === Hero Banner === -->
 <div class="hero-banner">
   <h1>Animator’s Paradise 🎨</h1>
-  <p>Commission magic, equip your creative arsenal, and soundtrack your world.</p>
+  <p>Commissions, equip your creative arsenal, and soundtrack your world.</p>
 </div>
 
 <!-- === Navigation === -->
@@ -371,7 +428,7 @@ footer {
 <!-- === Indie Music Vault === -->
 <section id="music" class="section">
   <div class="section-header">
-    <img src="avatar_music.png" alt="Music Avatar" class="section-avatar">
+    <img src="love.png" alt="Music Avatar" class="section-avatar">
     <div class="dialogue-bubble">“Need beats for your next stream? I’ve got you.”</div>
     <h2>🎧 Indie Instrumental Vault</h2>
   </div>
@@ -394,7 +451,7 @@ footer {
 <!-- === Social === -->
 <section id="social" class="section">
   <div class="section-header">
-    <img src="avatar_social.png" alt="Social Avatar" class="section-avatar">
+    <img src="bug.png" alt="Social Avatar" class="section-avatar">
     <div class="dialogue-bubble">“Join the creative guild — we’re stronger together.”</div>
     <h2>🌐 Connect</h2>
   </div>
@@ -434,6 +491,25 @@ footer {
 
   avatars.forEach(avatar => observer.observe(avatar));
 </script>
+ <script>
+    /* === Slideshow Logic === */
+    const slides = document.querySelectorAll('.slim-banner-container img');
+    let currentSlide = 0;
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+    setInterval(nextSlide, 5000);
+
+    /* === Hero fade-in after load === */
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.querySelector('.hero-banner').classList.add('visible');
+      }, 1500);
+    });
+  </script>
 
 </body>
 </html>
