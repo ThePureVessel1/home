@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ThePureVessel1</title>
+  <title>ThePureVessel1 | Animator’s Paradise</title>
 
   <!-- Game font -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
 
   <style>
     html {
@@ -15,13 +15,13 @@
 
     body {
       margin: 0;
-      font-family: 'Press Start 2P', cursive, sans-serif;
+      font-family: 'Press Start 2P', cursive;
       background-color: #0d1b2a;
       color: #f0f0f0;
       overflow-x: hidden;
     }
 
-    /* Loading screen */
+    /* === Loading Screen === */
     #loading-screen {
       position: fixed;
       top: 0; left: 0;
@@ -37,8 +37,6 @@
     #loading-insignia {
       font-size: 2em;
       margin-bottom: 20px;
-      color: #f0f0f0;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
       animation: flicker 1s infinite alternate;
       text-align: center;
     }
@@ -52,28 +50,19 @@
       animation: spin 1s linear infinite;
     }
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
+    @keyframes spin { to { transform: rotate(360deg); } }
     @keyframes flicker {
       0% { opacity: 0.7; }
       100% { opacity: 1; }
     }
 
-    .content {
-      display: none;
-      opacity: 0;
-      transition: opacity 1s;
-    }
-
+    /* === Layout === */
+    .content { display: none; opacity: 0; transition: opacity 1s; }
     .header-banner {
       text-align: center;
-      padding: 10px;
-      font-size: 2em;
+      padding: 20px;
+      font-size: 1.8em;
       background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: #f0f0f0;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
     }
 
@@ -81,7 +70,7 @@
       display: flex;
       justify-content: center;
       background: linear-gradient(135deg, #1e3c72, #2a5298);
-      padding: 8px;
+      padding: 10px;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -94,10 +83,15 @@
       text-decoration: none;
       transition: background 0.3s, color 0.3s;
     }
-
     .top-nav a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255,255,255,0.1);
       color: #ffffff;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     iframe {
@@ -110,180 +104,208 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
     }
 
-    .section {
-      padding: 60px 20px;
-      min-height: 300px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
     footer {
       text-align: center;
-      padding: 10px;
+      padding: 20px;
+      background: #0a1422;
+      font-size: 10px;
     }
-    /* 🧭 Guide Avatar Styles */
-.guide-container {
-  text-align: center;
-  margin-top: 20px;
-  padding: 20px;
-}
 
-.guide-avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 3px solid #fff;
-  margin-bottom: 10px;
-  background: #222;
-}
+    /* === Guide Avatar === */
+    .guide-container {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+    }
+    .guide-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      margin-bottom: 10px;
+      background: #222;
+    }
+    .guide-message {
+      font-size: 12px;
+      max-width: 500px;
+      margin: 0 auto 10px;
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      line-height: 1.6;
+      display: inline-block;
+    }
+    #userInput {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      padding: 6px;
+      border: none;
+      background: #1e3c72;
+      color: #fff;
+      border-radius: 4px;
+      width: 240px;
+      margin-top: 5px;
+      outline: none;
+    }
 
-.guide-message {
-  font-size: 12px;
-  max-width: 500px;
-  margin: 0 auto 10px;
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  min-height: 50px;
-  display: inline-block;
-  line-height: 1.6;
-}
-
-#userInput {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 10px;
-  padding: 6px;
-  border: none;
-  background: #1e3c72;
-  color: #fff;
-  border-radius: 4px;
-  width: 240px;
-  margin-top: 5px;
-  outline: none;
-}
+    /* === CTA Buttons === */
+    .cta-btn {
+      display: inline-block;
+      margin: 20px 10px;
+      padding: 10px 16px;
+      background: linear-gradient(135deg, #2a5298, #1e3c72);
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 10px;
+      transition: transform 0.2s, background 0.3s;
+    }
+    .cta-btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+    }
 
   </style>
 </head>
 
 <body>
 
-  <!-- Loading overlay -->
+  <!-- Loading Overlay -->
   <div id="loading-screen">
-    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
-      <div id="loading-insignia">🎮 LOADING 🎮</div>
-      <div id="loading-spinner"></div>
+    <div id="loading-insignia">🎮 LOADING 🎮</div>
+    <div id="loading-spinner"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+
+    <div class="header-banner" id="home">
+      <h1>Animator’s Paradise 🎨</h1>
+      <p style="font-size: 10px;">Where imagination is drawn, framed, and brought to life.</p>
     </div>
+
+    <nav class="top-nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#commissions">Commissions</a>
+      <a href="#supplies">Art Supplies</a>
+      <a href="#music-player">Music</a>
+      <a href="#social">Connect</a>
+    </nav>
+
+    <!-- Avatar Guide -->
+    <div class="guide-container">
+      <img src="hunter.png" alt="Avatar Guide" class="guide-avatar"/>
+      <div class="guide-message" id="guideMessage"></div>
+      <input type="text" id="userInput" placeholder="Say something..." autocomplete="off"/>
+    </div>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <h2>About the Artist</h2>
+      <p>
+        Call me <strong>The Purest of Vessels</strong>. Animator, storyteller, and visual dreamer.  
+        I breathe motion into stillness — blending music, rhythm, and divine spark into every frame.
+      </p>
+      <iframe src="https://3society.neocities.org/PUREST/contact"></iframe>
+    </section>
+
+    <!-- Commissions -->
+    <section id="commissions" class="section">
+      <h2>🎬 Commission an Animation</h2>
+      <p>Want your vision to move? Hire me for custom animation or storyboarding projects.</p>
+      <a href="mailto:your@email.com" class="cta-btn">Request a Quote</a>
+      <a href="https://ko-fi.com/thepurevessel1" target="_blank" class="cta-btn">Support My Art</a>
+    </section>
+
+    <!-- Supplies / Affiliate Links -->
+    <section id="supplies" class="section">
+      <h2>🖌️ Animator’s Supply Shop</h2>
+      <p>Tools I trust and recommend — every click supports my work via affiliate links.</p>
+      <a href="https://amzn.to/your-link1" target="_blank" class="cta-btn">Buy Drawing Tablet</a>
+      <a href="https://amzn.to/your-link2" target="_blank" class="cta-btn">Best Animation Software</a>
+      <a href="https://amzn.to/your-link3" target="_blank" class="cta-btn">Art Supplies</a>
+    </section>
+
+    <!-- Music -->
+    <section id="music-player" class="section">
+      <h2>🎧 Music Player</h2>
+      <iframe src="https://thepurevessel1.github.io/ThePureVessel1/music-player/"></iframe>
+    </section>
+
+    <!-- Social -->
+    <section id="social" class="section">
+      <h2>Connect</h2>
+      <p>Follow my journey across the realms of sound and motion.</p>
+      <a href="https://github.com/thepurevessel1" target="_blank" class="cta-btn">GitHub</a>
+      <a href="https://instagram.com/thepurevessel1" target="_blank" class="cta-btn">Instagram</a>
+    </section>
+
+    <footer>&copy; 2025 The Pure Vessel | Animator’s Paradise</footer>
   </div>
 
- <!-- Main content -->
-<div class="content">
-
-  <div class="header-banner" id="home">P.O.V</div>
-
-  <div class="top-nav">
-    <a href="#home">Hi</a>
-    <a href="#about">About</a>
-    <a href="#music-player">Music</a>
-    <a href="#social">Social</a>
-  </div>
-
-  <!-- 🧭 Guide Avatar Box -->
-  <div class="guide-container">
-    <img src="hunter.png" alt="Avatar Guide" class="guide-avatar" />
-    <div class="guide-message" id="guideMessage"></div>
-    <input type="text" id="userInput" placeholder="Say something..." autocomplete="off" />
-  </div>
-
-  <div id="about" class="section">
-    <h2>About</h2>
-    <p>Oh hi, Call me The Purest of Vessels, at your service! (read on) </p>
-     <iframe src="https://3society.neocities.org/PUREST/contact"></iframe>
-  </div> 
-
-</div>  <div id="music-player" class="section">
-    <h2>🎧 Music Player</h2>
-    <iframe src="https://thepurevessel1.github.io/ThePureVessel1/music-player/"></iframe>
-  </div>
-
-  <div id="social" class="section">
-    <h2>Connect</h2>
-    <p>Follow and comment on GitHub, Instagram or wherever I journey next...</p>
-  </div>
-
-  <footer>&copy; 2025</footer>
-</div>
-
-
-
-  <!-- Fade in main content -->
+  <!-- === Scripts === -->
   <script>
+    // Fade-in after loading
     window.addEventListener('load', () => {
       setTimeout(() => {
-        document.getElementById('loading-screen').style.opacity = '0';
+        const loader = document.getElementById('loading-screen');
+        loader.style.opacity = '0';
         setTimeout(() => {
-          document.getElementById('loading-screen').style.display = 'none';
+          loader.style.display = 'none';
           const content = document.querySelector('.content');
           content.style.display = 'block';
-          setTimeout(() => {
-            content.style.opacity = '1';
-          }, 50);
+          setTimeout(() => (content.style.opacity = '1'), 50);
         }, 1000);
-      }, 7000); // Adjust loading time if needed
+      }, 4000);
+    });
+
+    // === Guide Logic ===
+    const guideMessageBox = document.getElementById("guideMessage");
+    const userInput = document.getElementById("userInput");
+
+    const friendlyResponses = {
+      hi: "Hey animator! Ready to bring your next idea to life?",
+      hello: "Hello traveler! Welcome to the animator’s sanctuary.",
+      bye: "Farewell, but remember: inspiration never sleeps!",
+      thanks: "Anytime, friend. Keep creating!",
+      commission: "Commissions are open! Click 'Commission an Animation' below."
+    };
+
+    const deepThoughts = [
+      "Each frame is a heartbeat in motion.",
+      "God paints with light — I animate with patience.",
+      "Your art can move worlds — literally.",
+      "The best tools are the ones that disappear in your hands.",
+      "Commission work fuels the next great adventure."
+    ];
+
+    function typeMessage(message) {
+      guideMessageBox.textContent = '';
+      let i = 0;
+      const interval = setInterval(() => {
+        guideMessageBox.textContent += message.charAt(i);
+        i++;
+        if (i >= message.length) clearInterval(interval);
+      }, 35);
+    }
+
+    userInput.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        const input = userInput.value.trim().toLowerCase();
+        const response = friendlyResponses[input] || deepThoughts[Math.floor(Math.random() * deepThoughts.length)];
+        typeMessage(response);
+        userInput.value = '';
+      }
+    });
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        typeMessage("Welcome to the Animator’s Paradise. Let’s create something divine.");
+      }, 4500);
     });
   </script>
-<script>
-  const guideMessageBox = document.getElementById("guideMessage");
-  const userInput = document.getElementById("userInput");
-
-  const friendlyResponses = {
-    hi: "Hello there, kind soul. Have you listened to the new celebration track yet?",
-    hello: "Hello! Welcome back, traveler of sound.",
-    bye: "Farewell, but not forever. The song continues.",
-    "how are you": "I'm well — just dreaming of Hallownest. And you?",
-  };
-
-  const deepThoughts = [
-    "Are you here for the Purest Of Vessels? Yeah me too.",
-    "Oh good! I just got another commission request! God is good!",
-    "Another 360 days around the sun! Fancy that!",
-    "Wait, what? You're so ready for the next epic sequel to Silk Song? Yeah, me too sibling! Me too!",
-    "🎵 There once was a ship that put to sea and the name of the ship was the Billy of Tea... 🎵",
-    "I wonder what the weather in Hawaii is like?",
-    "Sometimes I feel like a vessel, but I am full of light.",
-    "If bugs could pray... would they sing?",
-    "I talk to God while animating. He whispers in frame timing.",
-  ];
-
-  // Typewriter effect
-  function typeMessage(message) {
-    guideMessageBox.textContent = '';
-    let i = 0;
-    const interval = setInterval(() => {
-      guideMessageBox.textContent += message.charAt(i);
-      i++;
-      if (i >= message.length) clearInterval(interval);
-    }, 35);
-  }
-
-  // Respond to user input
-  userInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      const input = userInput.value.trim().toLowerCase();
-      const response = friendlyResponses[input] || deepThoughts[Math.floor(Math.random() * deepThoughts.length)];
-      typeMessage(response);
-      userInput.value = '';
-    }
-  });
-
-
-
-  // First message
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      typeMessage("Welcome, sibling. This place... it sings.");
-    }, 8000); // after loading screen
-  });
-</script>
 
 </body>
 </html>
+
