@@ -16,7 +16,7 @@
     color: #e0e0e0; /* Light text for contrast */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
   }
 
@@ -27,7 +27,9 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     background-color: #222; /* Slightly lighter than body for framing */
     display: flex;
+    flex-direction: row;
     overflow: hidden;
+    margin-top: 20px;
   }
 
   /* Left sidebar */
@@ -44,6 +46,7 @@
     color: #00bcd4; /* Bright cerulean for headers */
     margin-bottom: 20px;
     font-size: 1.5em;
+    text-align: center;
   }
 
   /* Navigation links in sidebar */
@@ -68,9 +71,10 @@
   .main-content {
     flex: 1;
     padding: 20px;
+    overflow-y: auto;
   }
 
-  /* Example header */
+  /* Header styles */
   h1 {
     color: #00bcd4;
     margin-bottom: 20px;
@@ -81,7 +85,7 @@
     line-height: 1.6;
   }
 
-  /* Links within content */
+  /* Link styles */
   a {
     color: #3399cc; /* Cerulean Blue */
     text-decoration: none;
@@ -91,7 +95,23 @@
     color: #66ccff;
   }
 
-  /* Footer or additional styles can go here */
+  /* Topics styles */
+  #topics {
+    margin-top: 30px;
+  }
+
+  .topic {
+    background-color: #2b2b2b;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #444;
+  }
+
+  .topic h2 {
+    color: #00bcd4;
+    margin-top: 0;
+  }
 </style>
 </head>
 <body>
@@ -107,6 +127,25 @@
       <h1>Welcome to the Hollow Knight-inspired Theme</h1>
       <p>This blog now features a dark, mysterious aesthetic inspired by Hollow Knight, with touches of cerulean blue to highlight key elements and links. Enjoy exploring the shadows!</p>
       <p>Feel free to customize further with your own content and styles.</p>
+      
+      <!-- Topics Section -->
+      <section id="topics">
+        <article class="topic">
+          <h2>Topic 1: The Abyss</h2>
+          <p>The Abyss is a dark and foreboding place, full of secrets and lurking dangers. In this section, I explore the mysteries hidden beneath the surface.</p>
+        </article>
+        
+        <article class="topic">
+          <h2>Topic 2: The Knight's Journey</h2>
+          <p>The Knight's journey is filled with challenges and discoveries. Here, I share insights into the adventures and lessons learned along the way.</p>
+        </article>
+        
+        <article class="topic">
+          <h2>Topic 3: The Hollow Knight</h2>
+          <p>The Hollow Knight is a symbol of resilience and mystery. This section delves into its lore and significance within the game world.</p>
+        </article>
+        <!-- Add more topics here as needed -->
+      </section>
     </div>
   </div>
 </body>
