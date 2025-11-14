@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Purest's Blog</title>
+<!-- Google Fonts: Press Start 2P for a gamer style -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<style>
+  body {
+    margin: 0;
+    font-family: 'Press Start 2P', monospace;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Slider styles */
+  .slider-container {
+    position: relative;
+    width: 850px;
+    height: 70px;
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slides img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop the image to fill the container */
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  /* Show active slide */
+  .slides img.active {
+    opacity: 1;
+  }
+
+  /* Main layout styles */
+  .frame {
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: #222;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+
+  /* Sidebar styles */
+  .left-sidebar {
+    width: 250px;
+    background-color: #2b2b2b;
+    border-radius: 20px 0 0 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  .left-sidebar h2 {
+    color: #00bcd4;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .nav-link {
+    color: #3399cc;
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+  }
+  .nav-link i {
+    margin-right: 10px;
+  }
+  .nav-link:hover {
+    color: #66ccff;
+  }
+
+  /* Main content styles */
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  h1 {
+    color: #00bcd4;
+    margin-bottom: 20px;
+  }
+  p {
+    line-height: 1.6;
+  }
+  a {
+    color: #3399cc;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #66ccff;
+  }
+
+  /* Topics styles */
+  #topics {
+    margin-top: 30px;
+  }
+  .topic {
+    background-color: #2b2b2b;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #444;
+  }
+  .topic h2 {
+    color: #00bcd4;
+    margin-top: 0;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.9em;
+  }
+  .back-to-top {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.7em;
+    color: #3399cc;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: 'Press Start 2P', monospace;
+  }
+  .back-to-top:hover {
+    color: #66ccff;
+  }
+</style>
+</head>
+<body>
+
+<!-- Slider at the very top -->
+<div class="slider-container">
+  <div class="slides">
+    <!-- Replace src with your images, any size -->
+    <img src="images/comic.png" class="active" />
+    <img src="images/comic.png" />
+    <img src="images/comic.png" />
+  </div>
+</div>
+
+<div class="frame">
+  <div class="left-sidebar">
+    <h2>Purest's Blog</h2>
+    <a class="nav-link" href="#top"><i class="fas fa-home"></i>Home</a>
+    <a class="nav-link" href="#topic1"><i class="fas fa-book"></i>The Abyss</a>
+    <a class="nav-link" href="#topic2"><i class="fas fa-compass"></i>Journey</a>
+    <a class="nav-link" href="#topic3"><i class="fas fa-shield-alt"></i>The Hollow Knight</a>
+  </div>
+  <div class="main-content" id="top">
+    <h1>Welcome to the Hollow Knight-inspired Theme</h1>
+    <p>This blog now features a dark, mysterious aesthetic inspired by Hollow Knight, with touches of cerulean blue to highlight key elements and links. Enjoy exploring the shadows!</p>
+    <p>Feel free to customize further with your own content and styles.</p>
+    
+    <!-- Topics Section -->
+    <section id="topics">
+      <article class="topic" id="topic1">
+        <h2>Topic 1: The Abyss</h2>
+        <p>The Abyss is a dark and foreboding place, full of secrets and lurking dangers. In this section, I explore the mysteries hidden beneath the surface.</p>
+        <span class="back-to-top" onclick="scrollToTop()">Back to Top</span>
+      </article>
+      
+      <article class="topic" id="topic2">
+        <h2>Topic 2: The Knight's Journey</h2>
+        <p>The Knight's journey is filled with challenges and discoveries. Here, I share insights into the adventures and lessons learned along the way.</p>
+        <span class="back-to-top" onclick="scrollToTop()">Back to Top</span>
+      </article>
+      
+      <article class="topic" id="topic3">
+        <h2>Topic 3: The Hollow Knight</h2>
+        <p>The Hollow Knight is a symbol of resilience and mystery. This section delves into its lore and significance within the game world.</p>
+        <span class="back-to-top" onclick="scrollToTop()">Back to Top</span>
+      </article>
+      <!-- Add more topics here as needed -->
+    </section>
+  </div>
+</div>
+
+<script>
+  // Slider logic
+  const slides = document.querySelectorAll('.slides img');
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+
+  function showNextSlide() {
+    slides.forEach((img, index) => {
+      img.classList.remove('active');
+      if (index === currentSlide) {
+        img.classList.add('active');
+      }
+    });
+    currentSlide = (currentSlide + 1) % totalSlides;
+  }
+
+  setInterval(showNextSlide, 7000); // 7 seconds per slide
+
+  // Scroll to top
+  function scrollToTop() {
+    document.getElementById('top').scrollIntoView({behavior: 'smooth'});
+  }
+</script>
+</body>
+</html>
