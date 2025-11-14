@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
 <title>Purest's Blog</title>
-<!-- Google Fonts: Special Elite and a cleaner font -->
+<!-- Google Fonts: Montserrat -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -12,7 +12,6 @@
   body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    body {
     background-color: #1a1a1a; /* Dark background for mystery */
     color: #e0e0e0; /* Light text for contrast */
     display: flex;
@@ -20,306 +19,95 @@
     align-items: center;
     min-height: 100vh;
   }
+
   .frame {
     width: 90%;
     max-width: 1000px;
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
-    background-color: #222; /* Slightly lighter than body for framing */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: #222; /* Slightly lighter than body for framing */
     display: flex;
     overflow: hidden;
   }
+
   /* Left sidebar */
   .left-sidebar {
     width: 250px;
-  background-color: #2b2b2b; /* Dark sidebar */
+    background-color: #2b2b2b; /* Dark sidebar */
     border-radius: 20px 0 0 20px;
     padding: 15px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-    position: relative;
-    }
+  }
 
-/* Example link styling with cerulean blue */
-a {
-  color: #3399cc; /* Cerulean Blue */
-  text-decoration: none;
-}
+  .left-sidebar h2 {
+    color: #00bcd4; /* Bright cerulean for headers */
+    margin-bottom: 20px;
+    font-size: 1.5em;
+  }
 
-a:hover {
-  color: #66ccff; /* Lighter blue on hover */
-}
-
-/* Additional accents */
-.header {
-  color: #00bcd4; /* Bright cerulean for headers */
-}
-  
-  /* Chat bot message box with lavender gradient and cleaner font */
-  #greeting {
-    width: 100%;
-    padding: 10px 15px;
-    border-radius: 15px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    background: linear-gradient(135deg, #e0c3fc, #f8f9fa); /* lavender gradient */
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  /* Guide main message area */
-  #guideContent {
-    width: 100%;
-    min-height: 150px;
-    background: rgba(255,255,255,0.8);
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 14px;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
-    overflow-y: auto;
-  }
-  /* Greet button */
-  .greet-btn {
-    margin-top: 10px;
-    padding: 8px 12px;
-    font-family: 'Montserrat', sans-serif;
-    border: none;
-    border-radius: 8px;
-    background-color: #ddd;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.2s;
-  }
-  .greet-btn:hover {
-    background-color: #ccc;
-  }
-  /* Teacup icon */
-  .teacup {
-    margin-top: 30px;
-    font-size: 32px;
-    cursor: pointer;
-    color: #555;
-    transition: color 0.2s, transform 0.2s;
-  }
-  .teacup:hover {
-    color: #333;
-    transform: scale(1.1);
-  }
-  /* Nav menu popup */
-  .nav-popup {
-    position: absolute;
-    top: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(200, 200, 200, 0.8);
-    border-radius: 15px;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    backdrop-filter: blur(4px);
-    z-index: 10;
-    min-width: 180px;
-  }
-  .nav-popup.show {
-    display: flex;
-  }
+  /* Navigation links in sidebar */
   .nav-link {
-    margin: 8px 0;
+    color: #3399cc; /* Cerulean Blue */
     text-decoration: none;
-    color: #222;
-    font-size: 14px;
-    padding: 6px 12px;
-    border-radius: 8px;
-    transition: background 0.2s;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
   }
+
+  .nav-link i {
+    margin-right: 10px;
+  }
+
   .nav-link:hover {
-    background-color: rgba(0,0,0,0.1);
+    color: #66ccff; /* Lighter blue on hover */
   }
-  /* Main content area */
-  .site-content {
+
+  /* Main content */
+  .main-content {
     flex: 1;
     padding: 20px;
-    border-radius: 0 20px 20px 0;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-  }
-  .site-title {
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
-  .site-text {
-    font-size: 16px;
-    line-height: 1.5;
   }
 
-  /* Style for page content including the teacup button inside pages */
-  .page-container {
-    position: relative;
-    padding-bottom: 40px; /* space for button at bottom */
+  /* Example header */
+  h1 {
+    color: #00bcd4;
+    margin-bottom: 20px;
   }
-  .page-teacup-btn {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    color: #555;
-    transition: color 0.2s, transform 0.2s;
+
+  /* Paragraph styles */
+  p {
+    line-height: 1.6;
   }
-  .page-teacup-btn:hover {
-    color: #333;
-    transform: scale(1.1);
+
+  /* Links within content */
+  a {
+    color: #3399cc; /* Cerulean Blue */
+    text-decoration: none;
   }
+
+  a:hover {
+    color: #66ccff;
+  }
+
+  /* Footer or additional styles can go here */
 </style>
-
 </head>
 <body>
-<div class="frame">
-  <!-- Left sidebar: chat guide + menu -->
-  <div class="left-sidebar" id="sidebar">
-    <!-- Bot message asking for name -->
-    <div id="greeting">Hi! What's your name?</div>
-    <!-- Guide main message area -->
-    <div id="guideContent">
-      <p>Tell me your name to get started.</p>
+  <div class="frame">
+    <div class="left-sidebar">
+      <h2>Purest's Blog</h2>
+      <a class="nav-link" href="#"><i class="fas fa-home"></i>Home</a>
+      <a class="nav-link" href="#"><i class="fas fa-user"></i>About</a>
+      <a class="nav-link" href="#"><i class="fas fa-blog"></i>Posts</a>
+      <a class="nav-link" href="#"><i class="fas fa-envelope"></i>Contact</a>
     </div>
-    <!-- Greet button -->
-    <button class="greet-btn" id="greetBtn">Send</button>
-    <!-- Teacup icon for menu -->
-    <div class="teacup" id="teacup" title="Click for menu">
-      <i class="fas fa-mug-hot"></i>
-    </div>
-    <!-- Navigation menu -->
-    <div class="nav-popup" id="navMenu">
-      <a href="#home" class="nav-link" data-page="home">Home</a>
-      <a href="#chat" class="nav-link" data-page="chat">ChatBox</a>
-      <a href="#blueprint" class="nav-link" data-page="blueprint">Blueprint</a>
-      <a href="#quests" class="nav-link" data-page="quests">Quests</a>
+    <div class="main-content">
+      <h1>Welcome to the Hollow Knight-inspired Theme</h1>
+      <p>This blog now features a dark, mysterious aesthetic inspired by Hollow Knight, with touches of cerulean blue to highlight key elements and links. Enjoy exploring the shadows!</p>
+      <p>Feel free to customize further with your own content and styles.</p>
     </div>
   </div>
-  <!-- Main site content -->
-  <div class="site-content" id="mainContent">
-    <div class="site-title">Welcome to My Animations Blog!</div>
-    <div class="site-text" id="mainPageContent">
-      <!-- Initial message -->
-      <p>This is my cozy, calm-creative space. Use the icons on the left to explore different sections, and enjoy the friendly guide to help you along your journey! - Purest</p>
-    </div>
-  </div>
-</div>
-
-<script>
-  const speechSynthesisSupported = 'speechSynthesis' in window;
-  let voice = null;
-
-  // Load voices at start
-  function loadVoices() {
-    const voices = speechSynthesis.getVoices();
-    voice = voices.find(v => v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('woman')) || voices.find(v => v.lang.startsWith('en')) || null;
-  }
-  loadVoices();
-  if (speechSynthesisSupported) {
-    window.speechSynthesis.onvoiceschanged = loadVoices;
-  }
-
-  // Function to speak immediately
-  function speakImmediately() {
-    if (speechSynthesisSupported && voice) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(greetingMsg);
-      utterance.voice = voice;
-      utterance.rate = 1;
-      utterance.pitch = 1.2;
-      window.speechSynthesis.speak(utterance);
-    }
-  }
-
-  const greetingMsg = "Hi! What's your gamer-name?";
-
-  const greetingDiv = document.getElementById('greeting');
-  const guideContent = document.getElementById('guideContent');
-
-  // When "Send" button clicked
-  document.getElementById('greetBtn').addEventListener('click', () => {
-    const name = prompt("Please enter your name:") || "Friend";
-    greetingDiv.textContent = `Welcome, ${name}, to the Unknown Cafe Blog!`;
-    guideContent.innerHTML = `<p>Hello, ${name}! I'm glad you're here. Use the menu to explore and enjoy your journey.</p>`;
-    // Speak the greeting
-    greetingMsg = `Welcome, ${name}, to the Unknown Cafe Blog!`;
-    speakImmediately();
-  });
-
-  // Toggle menu
-  const teacup = document.getElementById('teacup');
-  const navMenu = document.getElementById('navMenu');
-
-  teacup.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('#sidebar') && !e.target.closest('#teacup')) {
-      navMenu.classList.remove('show');
-    }
-  });
-
-  const mainPageContent = document.getElementById('mainPageContent');
-
-  const pages = {
-    home: `<div class="page-container">
-      <h3>Home</h3>
-      <p>This is the home section where you can introduce your blog.</p>
-      <div class="page-teacup-btn" title="Go to Quests" data-target="quests"><i class="fas fa-mug-hot"></i></div>
-    </div>`,
-    chat: `<div class="page-container">
-      <h3>ChatBox</h3>
-      <p>This is your my chat box, for notes or messages to my friends.</p>
-      <div class="page-teacup-btn" title="Go to Home" data-target="home"><i class="fas fa-mug-hot"></i></div>
-    </div>`,
-    blueprint: `<div class="page-container">
-      <h3>Blueprint</h3>
-      <p>Special Plans.</p>
-      <div class="page-teacup-btn" title="Go to Special-Plans" data-target="quests"><i class="fas fa-mug-hot"></i></div>
-    </div>`,
-    quests: `<div class="page-container">
-      <h3>Quests</h3>
-      <p>Projects and Goals.</p>
-      <div class="page-teacup-btn" title="Go to Home" data-target="home"><i class="fas fa-mug-hot"></i></div>
-    </div>`
-  };
-
-  function handlePageButtonClick(targetPage) {
-    mainPageContent.innerHTML = pages[targetPage] || "<p>Content coming soon...</p>";
-    document.getElementById('botMessage').textContent = `You are now viewing the ${targetPage} section. Use the menu to explore more.`;
-    attachPageButtons();
-  }
-
-  function attachPageButtons() {
-    document.querySelectorAll('.page-teacup-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        handlePageButtonClick(btn.getAttribute('data-target'));
-      });
-    });
-  }
-
-  // Initialize first
-  attachPageButtons();
-
-  // Navigation links
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const pageId = link.getAttribute('data-page');
-      mainPageContent.innerHTML = pages[pageId] || "<p>Content coming soon...</p>";
-      document.getElementById('botMessage').textContent = `You are now viewing the ${pageId} section. Use the menu to explore more.`;
-      attachPageButtons();
-    });
-  });
-</script>
 </body>
 </html>
